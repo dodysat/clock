@@ -32,21 +32,21 @@
       <div class="mx-auto">
         <div class="card border-0" style="background-color: #000000">
           <div class="card-body p-0">
-            <h1 class="text-primary" style="font-size: 13vw">
+            <h1 class="text-primary" style="font-size: 17vw">
               <span id="txt-hour"></span>
             </h1>
           </div>
         </div>
         <div class="card border-0" style="background-color: #000000">
           <div class="card-body p-0">
-            <h1 class="text-success" style="font-size: 13vw">
+            <h1 class="text-success" style="font-size: 17vw">
               <span id="txt-minute"></span>
             </h1>
           </div>
         </div>
 
         <div class="card mt-5 border-0" style="background-color: #000000">
-          <div class="card-body p-0 ml-auto">
+          <div class="card-body p-0">
             <h1 class="text-info" style="font-size: 6vw">
               <span id="txt-date"></span>
             </h1>
@@ -125,6 +125,7 @@
             : "";
         return str.toUpperCase();
       }
+      runClock();
 
       window.setInterval(runClock, 1000);
 
@@ -133,7 +134,11 @@
         var txtMinute = moment().format("mm");
         $("#txt-hour").html(inWords(txtHour));
         $("#txt-minute").html(inWords(txtMinute));
-        $("#txt-date").html(moment().format("MMM Do YYYY"));
+        var day = moment().format("ddd");
+        var month = moment().format("MMM");
+        var date = moment().format("D");
+        var year = moment().format("YYYY");
+        $("#txt-date").html(day + ", " + month + " " + date + " " + year);
       }
     </script>
   </body>
